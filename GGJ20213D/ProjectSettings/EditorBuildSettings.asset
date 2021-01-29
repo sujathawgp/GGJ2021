@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/LostAndFound/Scenes/Menu.unity
+    guid: b63e1c2ff9c9a694bb86a4543a9cc404
   - enabled: 1
     path: Assets/LostAndFound/Scenes/InGame.unity
     guid: d28dd4c990772af4080535f7ed177e6c
-  - enabled: 1
-    path: Assets/LostAndFound/Scenes/Menu.unity
-    guid: b63e1c2ff9c9a694bb86a4543a9cc404
   m_configObjects: {}
