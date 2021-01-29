@@ -1992,7 +1992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374264983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 11.62, y: -1.14, z: 0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1675243149}
@@ -7886,6 +7886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1675243149}
+  - component: {fileID: 1675243150}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7901,13 +7902,121 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675243148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 374264984}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675243150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675243148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaa877b95216fb43a3193f381bf0241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wasd:
+    m_Name: Wasd
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f00c19de-76ce-4fce-88fd-00ad5c8698d1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: e97f5373-990c-479d-b890-86399037dcce
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Wasd
+      m_Flags: 4
+    - m_Name: up
+      m_Id: d2ac71e5-b496-4dc2-bef3-1e50f4c02d83
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Wasd
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 94a4db98-5e75-46f5-a354-53f008174677
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Wasd
+      m_Flags: 8
+    - m_Name: left
+      m_Id: ea358e48-0185-4a60-ae87-4af7ea7cb48d
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Wasd
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 59d92c50-a7ac-4634-aec6-3850ad400441
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Wasd
+      m_Flags: 8
+  arrows:
+    m_Name: Arrows
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: da989dbb-8550-4277-99a4-3c866ad4238c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: a9ae458a-f17d-4b14-9dca-9319a234c69f
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Arrows
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 22f6cdcf-1d23-486a-b96c-057acb4042cb
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Arrows
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 0dec7074-2e1c-4f83-bb38-72a3f58a3c79
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Arrows
+      m_Flags: 8
+    - m_Name: left
+      m_Id: e2ccc839-d84a-41b0-a624-17b336199d27
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Arrows
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 99f816aa-1cea-4f77-98a6-405615c7e368
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Arrows
+      m_Flags: 8
 --- !u!1001 &1710824824
 PrefabInstance:
   m_ObjectHideFlags: 0
