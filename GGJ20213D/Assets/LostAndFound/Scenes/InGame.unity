@@ -7932,7 +7932,7 @@ MonoBehaviour:
     - m_Name: 2D Vector
       m_Id: e97f5373-990c-479d-b890-86399037dcce
       m_Path: 2DVector
-      m_Interactions: 
+      m_Interactions: Press,Hold
       m_Processors: 
       m_Groups: 
       m_Action: Wasd
@@ -7972,7 +7972,7 @@ MonoBehaviour:
     - m_Name: 2D Vector
       m_Id: 7109ad6c-9265-469d-af95-62f6eb36cd81
       m_Path: 2DVector
-      m_Interactions: 
+      m_Interactions: Press,Hold
       m_Processors: 
       m_Groups: 
       m_Action: Wasd
