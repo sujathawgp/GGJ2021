@@ -9,6 +9,7 @@ TagManager:
   - PoisonPlant
   - Toy
   - Bone
+  - Sniffable
   layers:
   - Default
   - TransparentFX

@@ -145,6 +145,11 @@ public class PuppyController : MonoBehaviour
             }
         }
 
+        if (hit.gameObject.tag == "Sniffable" || hit.gameObject.tag == "Mushroom")
+        {
+            audioManager.Play("sniff", hit.gameObject.transform.position);
+        }
+
     }
 
 }
