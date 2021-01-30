@@ -25,5 +25,4 @@ public class PlayerData : MonoBehaviour
     {
         
     }
-
 }

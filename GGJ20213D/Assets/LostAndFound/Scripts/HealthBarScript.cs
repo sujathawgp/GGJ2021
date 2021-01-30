@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Not used
-
 public class HealthBarScript : MonoBehaviour
 {
     private Image HealthBar;
