@@ -15,6 +15,7 @@ public class PlayerData : MonoBehaviour
     public float health = 100.0f;
     public float smellRange = 10.0f;
     public PuppyStates puppyState = PuppyStates.Normal;
+    public int bonesCount = 0;
 
     void Start()
     {

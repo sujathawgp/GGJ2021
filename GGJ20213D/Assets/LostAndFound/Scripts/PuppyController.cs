@@ -24,6 +24,8 @@ public class PuppyController : MonoBehaviour
 
     private float speedBoost = 1f;
 
+    private UIScripts uiScripts;
+
     private void OnEnable()
     {
         moveCtrl.action.Enable();
@@ -43,6 +45,7 @@ public class PuppyController : MonoBehaviour
         playerData = gameObject.GetComponent<PlayerData>();
         cameraMainTransform = Camera.main.transform;
         audioManager = FindObjectOfType<AudioManager>();
+        uiScripts = GameObject.Find("Canvas").GetComponent<UIScripts>();
     }
 
 
@@ -109,21 +112,37 @@ public class PuppyController : MonoBehaviour
         if (hit.gameObject.tag == "SpeedMushroom" || hit.gameObject.tag == "PoisonPlant")
         {
             EatablesScript eatable = hit.gameObject.GetComponent<EatablesScript>();
-            if (eatable.CanEat())
+            if (eatable && eatable.CanEat())
             {
                 audioManager.Play("interaction", hit.gameObject.transform.position);
                 eatable.Eat();
 
                  if (hit.gameObject.tag == "SpeedMushroom")
                 {
-                    speedBoost = 5;
+                    speedBoost = Mathf.Min(speedBoost + 5, 10);
+                    audioManager.Play("wee", transform.position);
+                    uiScripts.BeginDisplayDialogue("Look at me shooting like a rocket!!");
                 }
                 else if (hit.gameObject.tag == "PoisonPlant")
                 {
                     playerData.health = Mathf.Max(playerData.health - 20, 0);
+                    audioManager.Play("cough", transform.position);
+                    uiScripts.BeginDisplayDialogue("That does not taste right ***");
                 }
             }
            
+        }
+
+        if (hit.gameObject.tag == "Bone")
+        {
+            EatablesScript eatable = hit.gameObject.GetComponent<EatablesScript>();
+            if (eatable && eatable.CanEat())
+            {
+                audioManager.Play("bark", hit.gameObject.transform.position);
+                eatable.Eat();
+                playerData.bonesCount++;
+                uiScripts.BeginDisplayDialogue("Got Bone!!");
+            }
         }
 
     }
