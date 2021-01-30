@@ -5,32 +5,19 @@ using UnityEngine.UI;
 
 public class UIScripts : MonoBehaviour
 {
-    private Image HealthBar;
-    
-    public float CurrentHealth;
-    
+    public PlayerData player;
+
+    public Image HealthBar;
     private float MaxHealth = 100.0f;
 
-    PlayerData player;
 
     void Start()
     {
-        HealthBar = GameObject.Find("HealthBarUI").GetComponent<Image>();
-        player = FindObjectOfType<PlayerData>();
     }
 
     void Update()
     {
-        if(player != null)
-            CurrentHealth = player.health;
-        if(HealthBar)
-        {
-            HealthBar.fillAmount = CurrentHealth / MaxHealth;
-        }
-        //else
-        //{
-        //    Debug.Log("health bar not found");
-        //}
+        HealthBar.fillAmount = (player.health + 10) / MaxHealth;
     }
 
 }
