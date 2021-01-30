@@ -21,15 +21,16 @@ public class UIScripts : MonoBehaviour
 
     void Update()
     {
-        CurrentHealth = player.health;
+        if(player != null)
+            CurrentHealth = player.health;
         if(HealthBar)
         {
             HealthBar.fillAmount = CurrentHealth / MaxHealth;
         }
-        else
-        {
-            Debug.Log("health bar not found");
-        }
+        //else
+        //{
+        //    Debug.Log("health bar not found");
+        //}
     }
 
 }
