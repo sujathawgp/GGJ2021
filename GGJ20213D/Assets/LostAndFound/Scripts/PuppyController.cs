@@ -20,6 +20,8 @@ public class PuppyController : MonoBehaviour
 
     public PlayerData playerData;
 
+    private AudioManager audioManager;
+
     private void OnEnable()
     {
         moveCtrl.action.Enable();
@@ -38,6 +40,7 @@ public class PuppyController : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
         playerData = gameObject.GetComponent<PlayerData>();
         cameraMainTransform = Camera.main.transform;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
 
@@ -66,7 +69,8 @@ public class PuppyController : MonoBehaviour
         if (jumpCtrl.action.triggered && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
+            audioManager.Play("jump", transform.position);
+        } 
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
