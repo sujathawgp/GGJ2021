@@ -105,18 +105,25 @@ public class PuppyController : MonoBehaviour
     //Detect collisions between the GameObjects with Colliders attached
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log("OnCollisionEnter");
-
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (hit.gameObject.tag == "SpeedMushroom")
+        if (hit.gameObject.tag == "SpeedMushroom" || hit.gameObject.tag == "PoisonPlant")
         {
-            SpeedMushroomScript mushroom = hit.gameObject.GetComponent<SpeedMushroomScript>();
-            if (mushroom.CanEat())
+            EatablesScript eatable = hit.gameObject.GetComponent<EatablesScript>();
+            if (eatable.CanEat())
             {
                 audioManager.Play("interaction", hit.gameObject.transform.position);
-                mushroom.Eat();
-                speedBoost = 5;
+                eatable.Eat();
+
+                 if (hit.gameObject.tag == "SpeedMushroom")
+                {
+                    speedBoost = 5;
+                }
+                else if (hit.gameObject.tag == "PoisonPlant")
+                {
+                    playerData.health = Mathf.Max(playerData.health - 20, 0);
+                }
             }
+           
         }
 
     }
