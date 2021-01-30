@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedMushroomScript : MonoBehaviour
+public class EatablesScript : MonoBehaviour
 {
     private Vector3 scaleChange = Vector3.zero;
 
