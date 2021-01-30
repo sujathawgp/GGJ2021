@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
-
+    public float health = 100.0f;
+    
     public InputAction wasd;
     public InputAction jump;
     public float speed = 1.0f;
