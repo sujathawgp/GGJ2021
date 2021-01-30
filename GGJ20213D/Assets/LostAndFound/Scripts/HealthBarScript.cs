@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class HealthBarScript : MonoBehaviour
 {
     private Image HealthBar;
@@ -21,8 +22,7 @@ public class HealthBarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentHealth = playerInputScript.health;
-        HealthBar.fillAmount = CurrentHealth / MaxHealth;
-
+        //CurrentHealth = playerInputScript.health;
+        //HealthBar.fillAmount = CurrentHealth / MaxHealth;
     }
 }
