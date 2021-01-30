@@ -1,7 +1,6 @@
 using Unity.Audio;
 using UnityEngine;
 
-
 [System.Serializable]
 public class Sound
 {
@@ -24,6 +23,8 @@ public class Sound
     [Range(0f, 1f)]
     public float spatialBlend = 1f;
 
+    private GameObject playingClipAtPointGameObject = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,5 +35,39 @@ public class Sound
     void Update()
     {
         
+    }
+
+    public void PlayClipAtPoint(Vector3 position)
+    {
+        playingClipAtPointGameObject = new GameObject("OneShotAudio:" + name);
+        playingClipAtPointGameObject.transform.position = position;
+        AudioSource audio = playingClipAtPointGameObject.AddComponent<AudioSource>();
+        audio.clip = source.clip;
+        audio.Play();
+        UnityEngine.Object.Destroy(playingClipAtPointGameObject, audio.clip.length);
+    }
+
+    public bool IsPlaying()
+    {
+        if (playingClipAtPointGameObject != null)
+            return true;
+        else if (source.isPlaying)
+            return true;
+
+        return false;
+
+    }
+
+    public void Stop()
+    {
+        if (playingClipAtPointGameObject != null)
+        {
+            playingClipAtPointGameObject.GetComponent<AudioSource>().Stop();
+            UnityEngine.Object.Destroy(playingClipAtPointGameObject);
+        }
+        else
+        {
+            source.Stop();
+        }
     }
 }

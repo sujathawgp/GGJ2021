@@ -53,6 +53,14 @@ public class PuppyController : MonoBehaviour
         }
 
         Vector2 movement = moveCtrl.action.ReadValue<Vector2>();
+        if (movement != Vector2.zero)
+        {
+            audioManager.Play("walk", transform.position);
+        }
+        else
+        {
+            audioManager.Stop("walk");
+        }
 
         Vector3 move = new Vector3(movement.x, 0, movement.y);
         move = cameraMainTransform.forward * move.z + cameraMainTransform.right * move.x;

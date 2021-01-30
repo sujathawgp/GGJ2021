@@ -39,13 +39,14 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.Log("Sound with name: " + name + " was not found.");
+            Debug.Log("Play: Sound with name: " + name + " was not found.");
         }
-        else
+        else if (!s.IsPlaying())
         {
             if (position != Vector3.zero)
             {
-                AudioSource.PlayClipAtPoint(s.source.clip, position, s.source.volume);
+                //AudioSource.PlayClipAtPoint(s.source.clip, position, s.source.volume);
+                s.PlayClipAtPoint(position);
             }
             else
             {
@@ -54,11 +55,24 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s != null)
+        {
+            s.Stop();
+        }
+        else
+        {
+            Debug.Log("Stop: Sound with name: " + name + " was not found.");
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Play("startgame", Vector3.zero);
+        //Play("startgame", Vector3.zero);
     }
 
     // Update is called once per frame
