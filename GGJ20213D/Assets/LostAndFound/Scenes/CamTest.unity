@@ -4311,7 +4311,7 @@ MonoBehaviour:
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
-    m_InvertInput: 0
+    m_InvertInput: 1
     m_MinValue: -180
     m_MaxValue: 180
     m_Wrap: 1
@@ -6638,10 +6638,10 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.5
+    m_Strength: 1
     m_Bias: 0.02
     m_NormalBias: 0.1
     m_NearPlane: 0.1
@@ -9258,7 +9258,6 @@ GameObject:
   - component: {fileID: 1734946876}
   - component: {fileID: 1734946875}
   - component: {fileID: 1734946874}
-  - component: {fileID: 1734946877}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -9284,7 +9283,6 @@ MonoBehaviour:
   jumpHeight: 1
   gravityValue: -9.81
   rotationSpeed: 4
-  playerData: {fileID: 0}
 --- !u!143 &1734946875
 CharacterController:
   m_ObjectHideFlags: 0
@@ -9317,21 +9315,6 @@ CapsuleCollider:
   m_Height: 1.2
   m_Direction: 1
   m_Center: {x: 0, y: 0.1, z: 0}
---- !u!114 &1734946877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734946873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47d378acc412a86438737eb81727c4a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  smellRange: 10
-  puppyState: 0
 --- !u!1001 &1745893645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9484,7 +9467,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769721451}
-  m_LocalRotation: {x: 0.41082823, y: 1e-45, z: -1e-45, w: 0.9117128}
+  m_LocalRotation: {x: 0.41082823, y: 2.017296e-37, z: -2.620647e-38, w: 0.9117128}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
