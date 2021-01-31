@@ -1,6 +1,10 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 [RequireComponent(typeof(CharacterController))]
 public class PuppyController : MonoBehaviour
 {
@@ -13,6 +17,9 @@ public class PuppyController : MonoBehaviour
     [SerializeField] private float rotationSpeed = 4.0f;
 
     [SerializeField] private ParticleSystem ps;
+
+    public TMP_Text dialogText;
+    public GameObject dialogMesh;
 
     private CharacterController controller;
     private Vector3 playerVelocity = Vector3.zero;
@@ -125,12 +132,18 @@ public class PuppyController : MonoBehaviour
                     speedBoost = Mathf.Min(speedBoost + 6, 20);
                     audioManager.Play("wee", transform.position);
                     uiScripts.BeginDisplayDialogue("Look at me shooting like a rocket!!");
+                    dialogText.text = "Look at me shooting like a rocket!!";
+                    StartCoroutine(ShowDialog());
+
                 }
                 else if (hit.gameObject.tag == "PoisonPlant")
                 {
                     playerData.health = Mathf.Max(playerData.health - 20, 0);
                     audioManager.Play("cough", transform.position);
                     uiScripts.BeginDisplayDialogue("That does not taste right ***");
+                    dialogText.text = "That does not taste right ***";
+                    StartCoroutine(ShowDialog());
+
                 }
             }
            
@@ -145,6 +158,8 @@ public class PuppyController : MonoBehaviour
                 eatable.Eat();
                 playerData.bonesCount++;
                 uiScripts.BeginDisplayDialogue("Got Bone!!");
+                dialogText.text = "Got Bone!!";
+                StartCoroutine(ShowDialog());
             }
         }
 
@@ -161,8 +176,15 @@ public class PuppyController : MonoBehaviour
                 //audioManager.Play("win", Vector3.zero);
                 SceneManager.LoadScene("Win");
             }
-        }
+        }       
+        
+    }
 
+    IEnumerator ShowDialog()
+    {
+        dialogMesh.SetActive(true);
+        yield return new WaitForSeconds(3.0f);
+        dialogMesh.SetActive(false);
     }
 
 }
