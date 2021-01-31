@@ -17,14 +17,30 @@ public class PlayerData : MonoBehaviour
     public PuppyStates puppyState = PuppyStates.Normal;
     public int bonesCount = 0;
 
+    public bool alive = true;
+
+    //public int gameTotalTime = 10 * 60; // mins * seconds. Move to GameManager
+    public int gameTotalTime = 1 * 60; // mins * seconds. Move to GameManager
+
+    private AudioManager audioManager;
+
     void Start()
     {
-        
+        audioManager = FindObjectOfType<AudioManager>();
+        StartCoroutine(BeingAlive());
     }
 
     void Update()
     {
-        
+        if(!alive)
+        {
+            audioManager.Play("lose", Vector3.zero);
+        }
+    }
+
+    IEnumerator BeingAlive()
+    {
+        yield return new WaitForSeconds(gameTotalTime);
     }
 
 }

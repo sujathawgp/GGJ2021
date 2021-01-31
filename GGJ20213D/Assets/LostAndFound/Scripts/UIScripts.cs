@@ -12,6 +12,7 @@ public class UIScripts : MonoBehaviour
     private float MaxHealth = 100.0f;
     public TextMeshProUGUI bonesCountText;
     public TextMeshProUGUI dialogue;
+    public TextMeshProUGUI timerText;
 
     void Start()
     {
@@ -20,6 +21,9 @@ public class UIScripts : MonoBehaviour
         bonesCountText = GameObject.Find("BonesCountText").GetComponent<TextMeshProUGUI>();
         bonesCountText.text = "Bones: 0";
         dialogue = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
+        timerText = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
+
+        StartCoroutine(DisplayTimer());
     }
 
     void Update()
@@ -40,6 +44,18 @@ public class UIScripts : MonoBehaviour
         yield return new WaitForSeconds(delay); 
 
         dialogue.text = "";
+    }
+
+    IEnumerator DisplayTimer()
+    {
+        int timer = player.gameTotalTime;
+        while(timer > 0)
+        {
+            yield return new WaitForSeconds(1); 
+            timer--;
+            timerText.text = "Time: " + timer;
+        }
+        player.alive = false;
     }
  
 }

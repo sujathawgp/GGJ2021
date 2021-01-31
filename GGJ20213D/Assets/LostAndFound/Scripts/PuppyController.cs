@@ -149,6 +149,15 @@ public class PuppyController : MonoBehaviour
         {
             audioManager.Play("sniff", hit.gameObject.transform.position);
         }
+        if (hit.gameObject.name == "Exit")
+        {
+            Debug.Log(hit.gameObject.name);
+            //Game over
+            if(playerData.alive)
+            {
+                audioManager.Play("win", Vector3.zero);
+            }
+        }
 
     }
 
