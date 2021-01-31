@@ -7,6 +7,9 @@ TagManager:
   - Mushroom
   - SpeedMushroom
   - PoisonPlant
+  - Toy
+  - Bone
+  - Sniffable
   layers:
   - Default
   - TransparentFX

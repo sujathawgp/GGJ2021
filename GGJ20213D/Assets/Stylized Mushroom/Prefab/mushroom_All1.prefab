@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 497000}
   - component: {fileID: -2342157228200532002}
   - component: {fileID: -7728117193827804888}
-  - component: {fileID: 8689211288618216530}
+  - component: {fileID: -5445274610696021589}
   m_Layer: 0
   m_Name: mushroom_All1
   m_TagString: Mushroom
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 157684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.5169174, y: -2.0450869, z: -0.0085421465}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 470622}
   m_Father: {fileID: 0}
@@ -83,8 +83,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157684}
   m_Mesh: {fileID: 4300000, guid: d753f96404dfc7e439e32d9cfdf6d982, type: 3}
---- !u!64 &8689211288618216530
-MeshCollider:
+--- !u!135 &-5445274610696021589
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,10 +93,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: d753f96404dfc7e439e32d9cfdf6d982, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.8
+  m_Center: {x: -0.22165124, y: 0.50173753, z: 0.17084295}
 --- !u!1 &179100
 GameObject:
   m_ObjectHideFlags: 0
