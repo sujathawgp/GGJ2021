@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public enum PuppyStates
 {
@@ -34,7 +34,8 @@ public class PlayerData : MonoBehaviour
     {
         if(!alive)
         {
-            audioManager.Play("lose", Vector3.zero);
+            //audioManager.Play("lose", Vector3.zero);
+            SceneManager.LoadScene("Lose");
         }
     }
 

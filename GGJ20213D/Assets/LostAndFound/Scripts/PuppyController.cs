@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 [RequireComponent(typeof(CharacterController))]
 public class PuppyController : MonoBehaviour
 {
@@ -155,7 +155,8 @@ public class PuppyController : MonoBehaviour
             //Game over
             if(playerData.alive)
             {
-                audioManager.Play("win", Vector3.zero);
+                //audioManager.Play("win", Vector3.zero);
+                SceneManager.LoadScene("Win");
             }
         }
 
