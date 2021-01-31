@@ -1505,7 +1505,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366126339}
-  m_LocalRotation: {x: 0.012835145, y: 0.00022346842, z: -0.0000028684856, w: 0.9999176}
+  m_LocalRotation: {x: 0.012835137, y: 0.00022347386, z: -0.0000028685536, w: 0.9999176}
   m_LocalPosition: {x: -0.0039209323, y: 5.432176, z: 2.7039278}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8603,7 +8603,7 @@ MonoBehaviour:
     loop: 0
     spatialBlend: 1
   - clip: {fileID: 8300000, guid: 7a46bdb2f919b164494854144953d8ed, type: 3}
-    volume: 1
+    volume: 0.65
     pitch: 0.83
     name: walk
     source: {fileID: 0}
@@ -8638,14 +8638,14 @@ MonoBehaviour:
     loop: 1
     spatialBlend: 1
   - clip: {fileID: 8300000, guid: a422b773d2ccfab4697625e3dfe5c8f6, type: 3}
-    volume: 1
+    volume: 0.71
     pitch: 0.83
     name: win
     source: {fileID: 0}
     loop: 0
     spatialBlend: 1
   - clip: {fileID: 8300000, guid: 935ea9435fa7da149855cc2eaca586af, type: 3}
-    volume: 1
+    volume: 0.78
     pitch: 0.83
     name: lose
     source: {fileID: 0}
@@ -10335,7 +10335,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477588042}
-  m_LocalRotation: {x: 0.012835142, y: 0.00022346842, z: -0.000002868485, w: 0.9999176}
+  m_LocalRotation: {x: 0.012835134, y: 0.00022347386, z: -0.0000028685529, w: 0.9999176}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11078,7 +11078,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709032886}
-  m_LocalRotation: {x: 0.012835142, y: 0.00022346842, z: -0.000002868485, w: 0.9999176}
+  m_LocalRotation: {x: 0.012835134, y: 0.00022347386, z: -0.0000028685529, w: 0.9999176}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11246,7 +11246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveCtrl: {fileID: -8536824976063419209, guid: f8c3a85c19e3c274b9017257ea530aee, type: 3}
   jumpCtrl: {fileID: -7154792754905999198, guid: f8c3a85c19e3c274b9017257ea530aee, type: 3}
-  playerSpeed: 2
+  playerSpeed: 4
   jumpHeight: 1
   gravityValue: -9.81
   rotationSpeed: 4
@@ -11462,7 +11462,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769721451}
-  m_LocalRotation: {x: 0.012835138, y: 0.00022347638, z: -0.0000028685859, w: 0.9999176}
+  m_LocalRotation: {x: 0.012835135, y: 0.00022347522, z: -0.0000028685704, w: 0.9999176}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
