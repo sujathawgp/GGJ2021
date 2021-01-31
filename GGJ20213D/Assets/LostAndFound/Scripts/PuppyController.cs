@@ -7,7 +7,7 @@ public class PuppyController : MonoBehaviour
     [SerializeField] private InputActionReference moveCtrl;
     [SerializeField] private InputActionReference jumpCtrl;
 
-    [SerializeField] private float playerSpeed = 2.0f;
+    [SerializeField] private float playerSpeed = 4.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private float rotationSpeed = 4.0f;
@@ -122,7 +122,7 @@ public class PuppyController : MonoBehaviour
 
                  if (hit.gameObject.tag == "SpeedMushroom")
                 {
-                    speedBoost = Mathf.Min(speedBoost + 5, 10);
+                    speedBoost = Mathf.Min(speedBoost + 6, 20);
                     audioManager.Play("wee", transform.position);
                     uiScripts.BeginDisplayDialogue("Look at me shooting like a rocket!!");
                 }
