@@ -12,6 +12,8 @@ public class PuppyController : MonoBehaviour
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private float rotationSpeed = 4.0f;
 
+    [SerializeField] private ParticleSystem ps;
+
     private CharacterController controller;
     private Vector3 playerVelocity = Vector3.zero;
     private bool groundedPlayer;
@@ -61,6 +63,7 @@ public class PuppyController : MonoBehaviour
         if (movement != Vector2.zero)
         {
             audioManager.Play("walk", transform.position);
+            ps.Play();
         }
         else
         {
