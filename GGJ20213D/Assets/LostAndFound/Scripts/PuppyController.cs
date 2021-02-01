@@ -1,5 +1,9 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 public class PuppyController : MonoBehaviour
@@ -7,10 +11,15 @@ public class PuppyController : MonoBehaviour
     [SerializeField] private InputActionReference moveCtrl;
     [SerializeField] private InputActionReference jumpCtrl;
 
-    [SerializeField] private float playerSpeed = 2.0f;
+    [SerializeField] private float playerSpeed = 4.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private float rotationSpeed = 4.0f;
+
+    [SerializeField] private ParticleSystem ps;
+
+    public TMP_Text dialogText;
+    public GameObject dialogMesh;
 
     private CharacterController controller;
     private Vector3 playerVelocity = Vector3.zero;
@@ -23,6 +32,8 @@ public class PuppyController : MonoBehaviour
     private AudioManager audioManager;
 
     private float speedBoost = 1f;
+
+    private UIScripts uiScripts;
 
     private void OnEnable()
     {
@@ -43,6 +54,7 @@ public class PuppyController : MonoBehaviour
         playerData = gameObject.GetComponent<PlayerData>();
         cameraMainTransform = Camera.main.transform;
         audioManager = FindObjectOfType<AudioManager>();
+        uiScripts = GameObject.Find("Canvas").GetComponent<UIScripts>();
     }
 
 
@@ -58,6 +70,7 @@ public class PuppyController : MonoBehaviour
         if (movement != Vector2.zero)
         {
             audioManager.Play("walk", transform.position);
+            ps.Play();
         }
         else
         {
@@ -105,20 +118,73 @@ public class PuppyController : MonoBehaviour
     //Detect collisions between the GameObjects with Colliders attached
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log("OnCollisionEnter");
-
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (hit.gameObject.tag == "SpeedMushroom")
+        if (hit.gameObject.tag == "SpeedMushroom" || hit.gameObject.tag == "PoisonPlant")
         {
-            SpeedMushroomScript mushroom = hit.gameObject.GetComponent<SpeedMushroomScript>();
-            if (mushroom.CanEat())
+            EatablesScript eatable = hit.gameObject.GetComponent<EatablesScript>();
+            if (eatable && eatable.CanEat())
             {
                 audioManager.Play("interaction", hit.gameObject.transform.position);
-                mushroom.Eat();
-                speedBoost = 5;
+                eatable.Eat();
+
+                 if (hit.gameObject.tag == "SpeedMushroom")
+                {
+                    speedBoost = Mathf.Min(speedBoost + 6, 20);
+                    audioManager.Play("wee", transform.position);
+                    uiScripts.BeginDisplayDialogue("Look at me shooting like a rocket!!");
+                    dialogText.text = "Look at me shooting like a rocket!!";
+                    StartCoroutine(ShowDialog());
+
+                }
+                else if (hit.gameObject.tag == "PoisonPlant")
+                {
+                    playerData.health = Mathf.Max(playerData.health - 20, 0);
+                    audioManager.Play("cough", transform.position);
+                    uiScripts.BeginDisplayDialogue("That does not taste right ***");
+                    dialogText.text = "That does not taste right ***";
+                    StartCoroutine(ShowDialog());
+
+                }
+            }
+           
+        }
+
+        if (hit.gameObject.tag == "Bone")
+        {
+            EatablesScript eatable = hit.gameObject.GetComponent<EatablesScript>();
+            if (eatable && eatable.CanEat())
+            {
+                audioManager.Play("bark", hit.gameObject.transform.position);
+                eatable.Eat();
+                playerData.bonesCount++;
+                uiScripts.BeginDisplayDialogue("Got Bone!!");
+                dialogText.text = "Got Bone!!";
+                StartCoroutine(ShowDialog());
             }
         }
 
+        if (hit.gameObject.tag == "Sniffable" || hit.gameObject.tag == "Mushroom")
+        {
+            audioManager.Play("sniff", hit.gameObject.transform.position);
+        }
+        if (hit.gameObject.name == "Exit")
+        {
+            Debug.Log(hit.gameObject.name);
+            //Game over
+            if(playerData.alive)
+            {
+                //audioManager.Play("win", Vector3.zero);
+                SceneManager.LoadScene("Win");
+            }
+        }       
+        
+    }
+
+    IEnumerator ShowDialog()
+    {
+        dialogMesh.SetActive(true);
+        yield return new WaitForSeconds(3.0f);
+        dialogMesh.SetActive(false);
     }
 
 }

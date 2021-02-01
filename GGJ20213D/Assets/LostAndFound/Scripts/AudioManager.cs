@@ -72,7 +72,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Play("startgame", Vector3.zero);
+        Play("theme", Vector3.zero);
     }
 
     // Update is called once per frame
